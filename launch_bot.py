@@ -14,6 +14,13 @@ def purchase_and_sale(hwnd):
         sale_of_products.sale()
 
 
+def sale_and_purchase(hwnd):
+    for _ in range(4):
+        sale_of_products.sale()
+
+    purchase_of_goods.purchase()
+
+
 def only_sale(hwnd):
     sale_of_products.sale()
 
