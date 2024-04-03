@@ -5,7 +5,7 @@ from Trading.sale_of_goods import sale_of_products
 
 windows = Windows()
 
-
+"""Slava Ukraina"""
 def purchase_and_sale(hwnd):
     purchase_of_goods.purchase()
 
