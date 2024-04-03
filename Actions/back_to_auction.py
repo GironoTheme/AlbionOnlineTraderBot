@@ -25,22 +25,15 @@ class BackToAuction(Mouse, Image):
             self.waiting_for_the_server_to_start()
 
         else:
-            self.click_to_login()
             sleep(2)
 
     def waiting_for_the_server_to_start(self):
         while CheckInMainMenu.checking_for_ok() is True:
             self.click_to_ok()
-            sleep(5)
-            self.click_to_login()
             sleep(60)
 
     def click_to_ok(self):
         self.move_and_click(960, 550)
-
-    def click_to_login(self):
-        self.move_and_click(1100, 765)
-        sleep(2)
 
     def click_to_enter_world(self):
         self.move_and_click(1200, 880)
@@ -63,8 +56,3 @@ class BackToAuction(Mouse, Image):
 
 back_to_auction = BackToAuction()
 
-# from vision_controll_package import Windows
-# windows = Windows()
-# def a(hwnd):
-#     print(back_to_auction.back_to_auction())
-# windows.switch_windows(a)

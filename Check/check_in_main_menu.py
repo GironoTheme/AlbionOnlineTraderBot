@@ -7,7 +7,7 @@ class CheckInMainMenu:
     @staticmethod
     def checking_for_main_menu():
         sleep(1)
-        image.take_screenshot(path_to_screenshots + 'albion_online.png', (790, 70, 1150, 290))
+        image.take_screenshot(path_to_screenshots + 'albion_online.png', (110, 30, 380, 170))
 
         return image.matching(path_to_templates + 'albion_online.png', path_to_screenshots + 'albion_online.png')
 
@@ -18,4 +18,5 @@ class CheckInMainMenu:
 
         return image.matching(path_to_templates + 'the_server_does_not_allow_players.png',
                               path_to_screenshots + 'the_server_does_not_allow_players.png')
+
 
