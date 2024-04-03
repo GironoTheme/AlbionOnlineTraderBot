@@ -1,3 +1,4 @@
+from Actions.back_to_auction import back_to_auction
 from Check.check_in_auction import CheckInAuction
 from Calculation.difference_calculation import DifferenceCalculation
 from Calculation.calculation_for_trading import CalculationForTrading
@@ -16,6 +17,8 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
         self.balance = 0
 
     def sale(self):
+        back_to_auction.back_to_auction()
+
         self._fraud_in_completed_transactions_tab()
 
     def _fraud_in_completed_transactions_tab(self):
@@ -64,7 +67,7 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
                 amount = int(CheckInAuction.checking_count_of_product_for_sale())
 
             except ValueError:
-                amount = 0
+                amount = 1
 
             price = int(sorted_list[0][2])
 
@@ -84,6 +87,8 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
                 self.balance = self.balance - tax_calculation[1]
 
     def _search_for_products_for_sale(self):
+        back_to_auction.back_to_auction()
+
         self.balance = CheckInAuction.check_balance()
 
         print(self.balance)

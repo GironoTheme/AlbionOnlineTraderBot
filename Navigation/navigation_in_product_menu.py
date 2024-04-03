@@ -30,7 +30,7 @@ class NavigationInProductMenu(Mouse, Keyboard):
 
     def moving_between_prices_within_chart(self, func):
         for i in range(24):
-            self.move(1070 + i * 20, 650)
+            self.move(1070 + i * 20, 613)
             time.sleep(0.5)
             func(i)
 

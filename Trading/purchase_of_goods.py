@@ -1,15 +1,25 @@
+from Actions.back_to_auction import back_to_auction
 from Navigation.navigation_in_auction import navigation_in_auction
 from Navigation.navigation_in_product_menu import navigation_in_product_menu
+from Parsing.parse_orders import ParseOrders
 from Check.check_in_auction import CheckInAuction
+from Calculation.difference_calculation import DifferenceCalculation
 from Calculation.calculation_for_trading import CalculationForTrading
 
 
-class PurchaseOfGoods:
+class PurchaseOfGoods(ParseOrders, DifferenceCalculation):
     def __init__(self):
+        DifferenceCalculation.__init__(self)
+        ParseOrders.__init__(self)
         self.list_of_purchased_items = []
 
-    def purchase(self, list_of_goods):
-        self._product_search(list_of_goods)
+    def purchase(self):
+        back_to_auction.back_to_auction()
+
+        navigation_in_auction.moving_between_resource_categories_and_levels_for_purchase(self.body_of_parser)
+
+        shopping_list = self.calculation(self.list_of_orders)
+        self._product_search(shopping_list)
 
         print('------------------------------------')
         print('Список купленных товаров')

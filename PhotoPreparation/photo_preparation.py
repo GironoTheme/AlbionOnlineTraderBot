@@ -3,8 +3,8 @@ from vision_controll_package import Image
 
 class PhotoPreparation(Image):
     def converting_numbers_to_line_from_about_product_menu(self, screenshot):
-        self.upscale_image(screenshot, 7)
-        self.upscale_contrast(screenshot, 7)
+        self.upscale_image(screenshot, 0.8)
+        #self.upscale_contrast(screenshot, 2)
 
         result = self.image_to_string(screenshot, False)
 

@@ -18,6 +18,8 @@ class DifferenceCalculation:
             data = [item for item in self.list_of_prices_and_difference if item != [None, None] and
                     item[4] >= percent_of_difference]
 
+            print(sorted(data, key=lambda x: x[4], reverse=True))
+
         return sorted(data, key=lambda x: x[4], reverse=True)
 
     def _sort_orders(self, list_of_orders, for_sale):

@@ -25,15 +25,15 @@ class ParseOrders(Image):
             func(self.current_list_of_orders)
 
         self.list_of_orders.append(self.current_list_of_orders)
-
+        print(self.current_list_of_orders)
         self.current_list_of_orders = []
 
     def price_and_quantity_parsing(self, i):
         path_to_price = path_to_screenshots+f'price{i}.png'
         path_to_amount = path_to_screenshots+f'amount{i}.png'
         # 1070, 650
-        self.take_screenshot(path_to_price, (20 * i + 1070 - 78, 598, 20 * i + 1070 - 10, 618))
-        self.take_screenshot(path_to_amount, (20 * i + 1070 - 136, 620, 20 * i + 1070 - 10, 639))
+        self.take_screenshot(path_to_price, (20 * i + 1070 - 78, 561, 20 * i + 1070 - 10, 581))
+        self.take_screenshot(path_to_amount, (20 * i + 1070 - 136, 583, 20 * i + 1070 - 10, 602))
 
         price = photo_preparation.converting_numbers_to_line_from_about_product_menu(path_to_price)
         amount = photo_preparation.converting_numbers_to_line_from_about_product_menu(path_to_amount)

@@ -57,6 +57,12 @@ class CheckInAuction:
         except:
             return 0
 
+    @staticmethod
+    def checking_for_main_menu():
+        time.sleep(1)
+        image.take_screenshot(path_to_screenshots+'albion_online.png', (790, 70, 1150, 290))
+
+        return image.matching(path_to_templates+'albion_online.png', path_to_screenshots+'albion_online.png')
 
 
 
