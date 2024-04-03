@@ -13,7 +13,7 @@ path_to_tesseract = f"{find_path_to_folder('teseract')}\\tesseract.exe"
 
 path_to_screenshots = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Images\\screenshots\\"
 path_to_templates = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Images\\templates\\"
-
+path_to_json = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Jsons\\"
 
 limit_for_calculating_best_price = 200000
 purchase_limit = 10000
