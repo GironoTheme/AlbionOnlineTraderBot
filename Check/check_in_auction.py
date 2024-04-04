@@ -41,7 +41,7 @@ class CheckInAuction:
 
     @staticmethod
     def checking_for_you_cant_carry_more_weight():
-        time.sleep(6)
+        time.sleep(10)
         image.take_screenshot(path_to_screenshots+'you_cant_carry_more_weight.png', (775, 440, 1140, 550))
 
         return image.matching(path_to_templates+'you_cant_carry_more_weight.png',
