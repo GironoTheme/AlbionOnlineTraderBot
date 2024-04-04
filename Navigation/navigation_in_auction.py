@@ -109,7 +109,8 @@ class NavigationInAuction(Mouse, Keyboard):
                 self.click_on_submit()
                 self.move_and_click(800, 550)
 
-                time.sleep(0.5)
+                time.sleep(1.3)
+                self.scroll_up(10)
 
     def click_on_submit(self):
         self.move_and_click(1100, 615)
