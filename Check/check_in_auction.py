@@ -8,6 +8,7 @@ from vision_controll_package import mouse
 class CheckInAuction:
     @staticmethod
     def checking_for_presence_of_button(cords=(1390, 402, 1402, 410), color_list=[135, 15, 40]):
+        time.sleep(0.5)
         image.take_screenshot(path_to_screenshots+'buy_button.png', cords)
         main_color_of_zone = image.get_main_color(path_to_screenshots+'buy_button.png')
 
@@ -21,7 +22,7 @@ class CheckInAuction:
     @staticmethod
     def check_balance():
         mouse.move(1210, 125)
-        time.sleep(1.2)
+        time.sleep(1.4)
         image.take_screenshot(path_to_screenshots+'balance.png', (1090, 96, 1206, 121))
 
         try:

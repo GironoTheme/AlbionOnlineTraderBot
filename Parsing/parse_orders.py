@@ -4,6 +4,7 @@ from vision_controll_package import Image
 from Navigation.navigation_in_product_menu import navigation_in_product_menu
 from main_shared_variables import path_to_screenshots
 from PhotoPreparation.photo_preparation import photo_preparation
+from collections import Counter
 
 
 class ParseOrders(Image):
@@ -22,11 +23,19 @@ class ParseOrders(Image):
         navigation_in_product_menu.moving_between_prices_within_chart(self.price_and_quantity_parsing)
 
         if need_for_func is True:
-            func(self.current_list_of_orders)
 
-        self.list_of_orders.append(self.current_list_of_orders)
-        print(self.current_list_of_orders)
+            func(self.filter_the_list())
+
+        self.list_of_orders.append(self.filter_the_list())
         self.current_list_of_orders = []
+
+    def filter_the_list(self):
+        num_lengths = [len(str(num[2])) for num in self.current_list_of_orders]
+
+        most_common_length = Counter(num_lengths).most_common(1)[0][0]
+
+        return [[num[0], num[1], num[2], num[3]] for num in self.current_list_of_orders
+                if len(str(num[2])) == most_common_length]
 
     def price_and_quantity_parsing(self, i):
         path_to_price = path_to_screenshots+f'price{i}.png'

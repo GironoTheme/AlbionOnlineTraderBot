@@ -27,7 +27,7 @@ def only_sale(hwnd):
 
 while True:
     try:
-        windows.switch_windows(purchase_and_sale)
+        windows.switch_windows(only_sale)
 
     except Exception as e:
             print(e)

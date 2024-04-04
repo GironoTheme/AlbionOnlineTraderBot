@@ -19,7 +19,12 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
     def sale(self):
         back_to_auction.back_to_auction()
 
+        self.reset_data_in_the_lists()
         self._fraud_in_completed_transactions_tab()
+
+    def reset_data_in_the_lists(self):
+        self.list_of_orders = []
+        self.list_of_prices_and_difference = []
 
     def _fraud_in_completed_transactions_tab(self):
         sleep(0.5)
@@ -85,6 +90,15 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
                 print(tax_calculation[1])
 
                 self.balance = self.balance - tax_calculation[1]
+
+                while CheckInAuction.checking_for_presence_of_button() is True:
+                    navigation_in_auction.click_to_buy_button()
+                    navigation_in_product_menu.expand_price_menu()
+
+                    navigation_in_product_menu.set_product_price(price - 1)
+                    navigation_in_product_menu.confirm_buy()
+
+                    self.balance = self.balance - tax_calculation[1]
 
     def _search_for_products_for_sale(self):
         back_to_auction.back_to_auction()

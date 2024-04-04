@@ -16,6 +16,7 @@ class PurchaseOfGoods(ParseOrders, DifferenceCalculation):
     def purchase(self):
         back_to_auction.back_to_auction()
 
+        self.reset_data_in_the_lists()
         navigation_in_auction.moving_between_resource_categories_and_levels_for_purchase(self.body_of_parser)
 
         shopping_list = self.calculation(self.list_of_orders)
@@ -28,9 +29,15 @@ class PurchaseOfGoods(ParseOrders, DifferenceCalculation):
 
         return self.list_of_purchased_items
 
+    def reset_data_in_the_lists(self):
+        self.list_of_purchased_items = []
+        self.list_of_orders = []
+        self.list_of_prices_and_difference = []
+
     def _product_search(self, list_of_goods):
+
+        balance = CheckInAuction.check_balance()
         for el in list_of_goods:
-            balance = CheckInAuction.check_balance()
             check = CalculationForTrading.checking_for_possibility_of_purchase(el[2], balance)
 
             if check is not False:
