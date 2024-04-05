@@ -7,6 +7,13 @@ from Navigation.navigation_in_product_menu import navigation_in_product_menu
 
 
 class NavigationInAuction(Mouse, Keyboard):
+    def remove_auction(self):
+        self.move_and_click(1450, 90)
+
+    def open_an_auction(self):
+        self.move_and_click(1180, 80)
+        time.sleep(2)
+
     def click_to_goods(self):
         self.move_and_click(735, 200)
 

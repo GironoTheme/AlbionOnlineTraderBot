@@ -2,6 +2,7 @@ from vision_controll_package import Mouse, Image
 from Check.check_in_main_menu import CheckInMainMenu
 from time import sleep
 
+
 class BackToAuction(Mouse, Image):
     def __init__(self):
         super().__init__()
