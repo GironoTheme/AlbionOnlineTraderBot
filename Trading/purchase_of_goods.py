@@ -5,6 +5,7 @@ from Parsing.parse_orders import ParseOrders
 from Check.check_in_auction import CheckInAuction
 from Calculation.difference_calculation import DifferenceCalculation
 from Calculation.calculation_for_trading import CalculationForTrading
+from main_shared_variables import min_balance
 
 
 class PurchaseOfGoods(ParseOrders, DifferenceCalculation):
@@ -16,18 +17,19 @@ class PurchaseOfGoods(ParseOrders, DifferenceCalculation):
     def purchase(self):
         back_to_auction.back_to_auction()
 
-        self.reset_data_in_the_lists()
-        navigation_in_auction.moving_between_resource_categories_and_levels_for_purchase(self.body_of_parser)
+        if CheckInAuction.check_balance() >= min_balance:
+            self.reset_data_in_the_lists()
+            navigation_in_auction.moving_between_resource_categories_and_levels_for_purchase(self.body_of_parser)
 
-        shopping_list = self.calculation(self.list_of_orders)
-        self._product_search(shopping_list)
+            shopping_list = self.calculation(self.list_of_orders)
+            self._product_search(shopping_list)
 
-        print('------------------------------------')
-        print('Список купленных товаров')
-        print(self.list_of_purchased_items)
-        print('------------------------------------')
+            print('------------------------------------')
+            print('Список купленных товаров')
+            print(self.list_of_purchased_items)
+            print('------------------------------------')
 
-        return self.list_of_purchased_items
+            return self.list_of_purchased_items
 
     def reset_data_in_the_lists(self):
         self.list_of_purchased_items = []
