@@ -14,5 +14,8 @@ class GetJson:
     def get_resources(self):
         return self.get_json('resources')
 
+    def get_cities(self):
+        return self.get_json('cities')
+
 
 get_json = GetJson()
