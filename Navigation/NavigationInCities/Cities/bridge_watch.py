@@ -1,4 +1,4 @@
-from navigation_in_city import NavigationForCity
+from Navigation.NavigationInCities.navigation_in_city import NavigationForCity
 from time import sleep
 
 
@@ -13,7 +13,7 @@ class BridgeWatch(NavigationForCity):
         self.move_up_left_diagonal(4.5)
 
     def _go_to_auction_from_enter(self):
-        sleep(4.5)
+        sleep(5)
         self.move_down_right_diagonal(3.6)
         self.move_up_right_diagonal(1.2)
 
@@ -21,7 +21,7 @@ class BridgeWatch(NavigationForCity):
         sleep(2)
         self.move_down_left_diagonal(2.2)
         self.move_up_left_diagonal(7)
-        sleep(4.5)
+        sleep(5)
 
     def _go_to_travel_from_market_enter(self):
         self.move_down_right_diagonal(4)
@@ -40,13 +40,12 @@ class BridgeWatch(NavigationForCity):
         self._go_to_market_from_travel()
         self._go_to_auction_from_enter()
 
+    def back_and_forth_with_execution_of_function(self, func):
+        self.go_to_auction_from_travel()
+        func()
+        self.go_to_travel_from_auction()
+
 
 bridge_watch = BridgeWatch()
-from vision_controll_package import Windows
-windows = Windows()
-def a(hwnd):
-    #bridge_watch.go_to_auction_from_travel()
-    print(bridge_watch.name_of_city())
-    #bridge_watch.go_to_travel_from_auction()
-    #thetford.go_to_auction_from_travel_planner()
-windows.switch_windows(a)
+
+

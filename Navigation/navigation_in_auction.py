@@ -99,7 +99,7 @@ class NavigationInAuction(Mouse, Keyboard):
         self.move_and_click(1500, 800)
 
     def click_on_take_all(self):
-        self.move_and_click(1360, 970)
+        self.move_and_click(1360, 950)
 
     def click_on_ok(self):
         self.move_and_click(960, 530)
