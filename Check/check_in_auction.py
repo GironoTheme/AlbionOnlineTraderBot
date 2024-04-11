@@ -65,5 +65,11 @@ class CheckInAuction:
 
         return image.matching(path_to_templates+'albion_online.png', path_to_screenshots+'albion_online.png')
 
+    @staticmethod
+    def checking_your_inventory_cannot_hold_this_many_item():
+        time.sleep(1)
+        image.take_screenshot(path_to_screenshots+'your_inventory_cannot_hold_this_many_item.png', (725, 440, 1140, 550))
 
+        return image.matching(path_to_templates+'your_inventory_cannot_hold_this_many_item.png',
+                              path_to_screenshots + 'your_inventory_cannot_hold_this_many_item.png')
 

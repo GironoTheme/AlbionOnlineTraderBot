@@ -23,17 +23,17 @@ class HikingBetweenCities:
         for city in range(len(self.cities)):
             back_to_auction.back_to_auction()
 
-            self.choose_city(self.cities[city].name_of_city())
+            self._choose_city(self.cities[city].name_of_city())
             sleep(5.5)
 
             self.cities[city].back_and_forth_with_execution_of_function(func)
 
-        self.choose_city(thetford.name_of_city())
+        self._choose_city(thetford.name_of_city())
         sleep(5.5)
 
         thetford.go_to_auction_from_travel_planner()
 
-    def choose_city(self, city):
+    def _choose_city(self, city):
         mouse.move_and_click(270, 230)
         keyboard.type(city)
 
@@ -42,16 +42,6 @@ class HikingBetweenCities:
 
 hiking_between_cities = HikingBetweenCities()
 
-from vision_controll_package import Windows
-windows = Windows()
-
-def b():
-    a = 0
-    a = a + 1
-
-def a(hwnd):
-    hiking_between_cities.start_hiking_in_thetford(b)
-windows.switch_windows(a)
 
 
 

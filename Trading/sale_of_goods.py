@@ -43,6 +43,10 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
                     navigation_in_auction.take_items_from_completed_transactions()
                     CheckInAuction.checking_for_presence_of_button((1394, 402, 1407, 410), [256, 15, 50])
 
+                    if CheckInAuction.checking_your_inventory_cannot_hold_this_many_item() is True:
+                        navigation_in_auction.click_on_ok()
+                        break
+
                 navigation_in_inventory.stack_objects_in_inventory()
                 navigation_in_auction.click_on_sales_tab()
 
