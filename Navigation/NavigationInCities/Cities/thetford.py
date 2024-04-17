@@ -8,13 +8,13 @@ class Thetford(NavigationForCity):
         return "Thetford"
 
     def _exit_market_from_auction(self):
-        sleep(2)
+        sleep(4)
         self.move_down_left_diagonal(2.2)
         self.move_up_left_diagonal(7)
-        sleep(5)
+        sleep(10)
 
     def _go_to_auction_from_enter(self):
-        sleep(5)
+        sleep(10)
         self.move_down_right_diagonal(3.6)
         self.move_up_right_diagonal(1.2)
 
@@ -36,7 +36,7 @@ class Thetford(NavigationForCity):
         self.move_up_left_diagonal(2)
 
     def go_to_auction_from_travel_planner(self):
-        sleep(2)
+        sleep(4)
         self._go_to_market_from_travel_planner()
         self._go_to_auction_from_enter()
 

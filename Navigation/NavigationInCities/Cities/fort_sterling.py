@@ -8,20 +8,20 @@ class FortSterling(NavigationForCity):
         return "Fort Sterling"
 
     def _go_to_market_from_travel(self):
-        sleep(2)
-        self.move_down_left_diagonal(7.5)
+        sleep(4)
+        self.move_down_left_diagonal(6.5)
         self.move_up_left_diagonal(2)
 
     def _go_to_auction_from_enter(self):
-        sleep(5)
+        sleep(10)
         self.move_down_right_diagonal(3.35)
         self.move_up_right_diagonal(1.2)
 
     def _exit_market_from_auction(self):
-        sleep(2)
+        sleep(4)
         self.move_down_left_diagonal(2.2)
         self.move_up_left_diagonal(7)
-        sleep(5)
+        sleep(10)
 
     def _go_to_travel_from_market_enter(self):
         self.move_down_right_diagonal(2)
@@ -50,5 +50,4 @@ class FortSterling(NavigationForCity):
 
 
 fort_sterling = FortSterling()
-
 

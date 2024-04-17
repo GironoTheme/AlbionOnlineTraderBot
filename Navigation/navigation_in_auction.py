@@ -29,13 +29,13 @@ class NavigationInAuction(Mouse, Keyboard):
 
     def moving_between_resource_categories_and_levels_for_sale(self, func):
         self.click_on_sales_tab()
-        self._moving_between_resource_categories_and_levels(func, True)
+        self._moving_between_resource_categories_and_levels(func)
 
     def moving_between_resource_categories_and_levels_for_purchase(self, func):
         self.click_on_purchases_tab()
         self._moving_between_resource_categories_and_levels(func)
 
-    def _moving_between_resource_categories_and_levels(self, func, for_sale=False):
+    def _moving_between_resource_categories_and_levels(self, func):
         """
         Перебор категорий ресурсов с выполнением функции
         """
@@ -53,14 +53,8 @@ class NavigationInAuction(Mouse, Keyboard):
                 if self._check_button(name) is False:
                     continue
 
-                if for_sale is True:
-                    while self._check_button(name) is True:
-                        self.click_to_buy_button()
-                        navigation_in_product_menu.navigation_for_parser(func, name, level)
-
-                else:
-                    self.click_to_buy_button()
-                    navigation_in_product_menu.navigation_for_parser(func, name, level)
+                self.click_to_buy_button()
+                navigation_in_product_menu.navigation_for_parser(func, name, level)
 
             if CheckInAuction().checking_for_presence_of_button() is False:
                 continue
@@ -99,7 +93,8 @@ class NavigationInAuction(Mouse, Keyboard):
         self.move_and_click(1500, 800)
 
     def click_on_take_all(self):
-        self.move_and_click(1360, 950)
+        self.move_and_click(1360, 940)
+        self.move_and_click(1360, 970)
 
     def click_on_ok(self):
         self.move_and_click(960, 530)

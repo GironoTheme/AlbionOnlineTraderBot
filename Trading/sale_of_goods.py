@@ -95,12 +95,18 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
 
                 self.balance = self.balance - tax_calculation[1]
 
-                while CheckInAuction.checking_for_presence_of_button() is True:
+                navigation_in_product_menu.move(886, 505)
+                navigation_in_product_menu.scroll_up(12)
+
+                while CheckInAuction.checking_for_presence_of_button(color_list=[255, 15, 50]) is True:
                     navigation_in_auction.click_to_buy_button()
                     navigation_in_product_menu.expand_price_menu()
 
                     navigation_in_product_menu.set_product_price(price - 1)
                     navigation_in_product_menu.confirm_buy()
+
+                    navigation_in_product_menu.move(886, 505)
+                    navigation_in_product_menu.scroll_up(12)
 
                     self.balance = self.balance - tax_calculation[1]
 

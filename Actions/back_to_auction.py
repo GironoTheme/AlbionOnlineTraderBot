@@ -22,23 +22,34 @@ class BackToAuction(Mouse, Image):
             self.in_menu = False
 
     def login(self):
-        if CheckInMainMenu.checking_for_ok() is True:
+        if (CheckInMainMenu.checking_for_ok() is True or
+           CheckInMainMenu.checking_for_ok_for_failed_to_connect_to_server() is True):
             self.waiting_for_the_server_to_start()
 
         else:
             sleep(2)
 
     def waiting_for_the_server_to_start(self):
-        while CheckInMainMenu.checking_for_ok() is True:
+        while (CheckInMainMenu.checking_for_ok() is True or
+               CheckInMainMenu.checking_for_ok_for_failed_to_connect_to_server() is True):
+
             self.click_to_ok()
+            sleep(3)
+            self.move_and_click(960, 770)
             sleep(60)
 
     def click_to_ok(self):
-        self.move_and_click(960, 550)
+        self.move_and_click(960, 543)
 
-    def click_to_enter_world(self):
-        self.move_and_click(1200, 880)
-        sleep(8)
+    def click_to_reconnect(self):
+        self.move_and_click(960, 770)
+        sleep(14)
+
+        self.waiting_for_the_server_to_start()
+
+    def enter_world(self):
+        self.move_and_click(1205, 885)
+        sleep(15)
 
     def remove_ads(self):
         self.move_and_click(1460, 170)
@@ -46,7 +57,8 @@ class BackToAuction(Mouse, Image):
 
     def enter_to_game(self):
         self.login()
-        self.click_to_enter_world()
+        self.click_to_reconnect()
+        self.enter_world()
         self.remove_ads()
         self.open_an_auction()
 

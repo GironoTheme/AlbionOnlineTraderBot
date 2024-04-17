@@ -26,8 +26,8 @@ def purchase_and_sale():
 
     purchase()
 
-    time.sleep(270)
     for _ in range(4):
+        time.sleep(270)
         sale_of_products.sale()
 
     actions_in_game.close_auction_menu()
@@ -53,7 +53,7 @@ def only_sale():
 
 
 def walker(hwnd):
-    hiking_between_cities.start_hiking_in_thetford(purchase_and_sale)
+    hiking_between_cities.start_hiking_in_thetford(only_sale)
 
 
 while True:

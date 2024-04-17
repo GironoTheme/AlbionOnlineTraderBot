@@ -12,7 +12,7 @@ from time import sleep
 
 class HikingBetweenCities:
     def __init__(self):
-        self.cities = [bridge_watch, caerleon, fort_sterling, lymhurst, martlock]
+        self.cities = [bridge_watch, caerleon, lymhurst, martlock]
 
     def start_hiking_in_thetford(self, func):
         sleep(1)
@@ -28,8 +28,11 @@ class HikingBetweenCities:
 
             self.cities[city].back_and_forth_with_execution_of_function(func)
 
-        self._choose_city(thetford.name_of_city())
-        sleep(5.5)
+        mouse.move_and_click(270, 230)
+        mouse.move_and_click(215, 500)
+        mouse.move_and_click(410, 950)
+
+        sleep(10)
 
         thetford.go_to_auction_from_travel_planner()
 

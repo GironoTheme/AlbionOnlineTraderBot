@@ -1,5 +1,5 @@
 import pyautogui
-
+import time
 
 class Mouse:
     """Класс для работы с мышкой"""
@@ -49,6 +49,10 @@ class Mouse:
         amount *= 100
         pyautogui.scroll(amount)
 
+    def hold_down_right_mouse_button(self, delay):
+        pyautogui.mouseDown(button='right')
+        time.sleep(delay)
+        pyautogui.mouseUp(button='right')
 
 mouse = Mouse()
 

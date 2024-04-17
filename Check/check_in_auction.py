@@ -8,10 +8,10 @@ from vision_controll_package import mouse
 class CheckInAuction:
     @staticmethod
     def checking_for_presence_of_button(cords=(1390, 402, 1402, 410), color_list=[135, 15, 40]):
-        time.sleep(0.5)
+        time.sleep(0.7)
         image.take_screenshot(path_to_screenshots+'buy_button.png', cords)
         main_color_of_zone = image.get_main_color(path_to_screenshots+'buy_button.png')
-
+        print(main_color_of_zone)
         if (95 <= main_color_of_zone[0] <= color_list[0] and
            0 <= main_color_of_zone[1] <= color_list[1] and
            5 <= main_color_of_zone[2] <= color_list[2]):
@@ -23,7 +23,7 @@ class CheckInAuction:
     def check_balance():
         mouse.move(1210, 125)
         time.sleep(1.4)
-        image.take_screenshot(path_to_screenshots+'balance.png', (1090, 96, 1206, 121))
+        image.take_screenshot(path_to_screenshots+'balance.png', (1090, 90, 1206, 121))
 
         try:
             return int(image.image_to_string(path_to_screenshots+'balance.png', True).replace(',', ''))

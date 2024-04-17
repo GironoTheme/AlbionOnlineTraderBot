@@ -30,4 +30,4 @@ class Keyboard:
         pyautogui.write(str(text))
 
 
-
+keyboard = Keyboard()

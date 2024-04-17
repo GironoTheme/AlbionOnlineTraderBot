@@ -34,7 +34,7 @@ class Database:
         return self.cursor.fetchall()
 
 
-db = Database()
+#db = Database()
 
 #db.make_query("CREATE TABLE purchase_and_sale(product_id INT PRIMARY KEY, character_id INT, product_name varchar(50), purchase_price FLOAT, sale_price FLOAT, ratio INT, count INT, FOREIGN KEY (character_id) REFERENCES characters(character_id))")
 
