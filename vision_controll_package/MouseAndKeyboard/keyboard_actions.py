@@ -1,6 +1,5 @@
 import time
-
-import pyautogui
+import keyboard as kb
 
 
 class Keyboard:
@@ -11,23 +10,24 @@ class Keyboard:
 
     def hold_down_button(self, button, clamping_time):
         """Функция для зажатия клавиши"""
-        pyautogui.keyDown(button)
+        kb.press(button)
         time.sleep(clamping_time)
-        pyautogui.keyUp(button)
+        kb.release(button)
 
     def press_button(self, button):
         """Фуцнкия для нажатия клавиши\n
         button - клавиша
         """
-        pyautogui.press(button)
+        kb.press(button)
 
     def esc(self):
         """Функция для нажатия клавиши esc"""
-        pyautogui.press('esc')
+        kb.press('esc')
 
     def type(self, text):
         """Функция для того чтобы напечатать текст"""
-        pyautogui.write(str(text))
+        kb.write(str(text))
 
 
 keyboard = Keyboard()
+

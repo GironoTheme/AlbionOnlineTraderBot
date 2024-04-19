@@ -14,7 +14,7 @@ class NavigationInInventory(Mouse, Keyboard):
         self.open_or_close_inventory()
 
     def open_or_close_inventory(self):
-        self.type('i')
+        self.press_button('i')
 
 
 navigation_in_inventory = NavigationInInventory()
