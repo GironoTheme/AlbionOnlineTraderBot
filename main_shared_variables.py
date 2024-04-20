@@ -7,9 +7,9 @@ def find_path_to_folder(folder):
 
 
 name_of_window = 'Albion Online Client'
-disk_with_tesseract = 'C'
+disk_with_tesseract = 'D'
 
-path_to_tesseract = f"{find_path_to_folder('teseract')}\\tesseract.exe"
+path_to_tesseract = f"{find_path_to_folder('tesseract')}\\tesseract.exe"
 
 path_to_screenshots = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Images\\screenshots\\"
 path_to_templates = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Images\\templates\\"

@@ -112,9 +112,7 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
 
     def _search_for_products_for_sale(self):
         back_to_auction.back_to_auction()
-
         self.balance = CheckInAuction.check_balance()
-
         print(self.balance)
 
         navigation_in_auction.moving_between_resource_categories_and_levels_for_sale(self._func_for_parsing_of_products)
