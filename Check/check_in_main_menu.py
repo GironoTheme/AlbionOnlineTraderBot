@@ -22,6 +22,17 @@ class CheckInMainMenu:
     def checking_for_ok_for_failed_to_connect_to_server():
         sleep(1)
         image.take_screenshot(path_to_screenshots+'failed_to_connect_to_server.png', (910, 515, 1010, 535))
-        print(22222222222222222222222222222222222)
+
         return image.matching(path_to_templates + 'failed_to_connect_to_server.png',
                               path_to_screenshots + 'failed_to_connect_to_server.png')
+
+    @staticmethod
+    def check_for_ads():
+        sleep(1)
+        image.take_screenshot(path_to_screenshots+'ads.png', (1450, 165, 1470, 185))
+
+        return image.matching(path_to_templates + 'ads.png',
+                              path_to_screenshots + 'ads.png')
+
+
+
