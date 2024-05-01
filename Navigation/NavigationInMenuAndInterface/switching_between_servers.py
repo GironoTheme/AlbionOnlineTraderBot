@@ -1,5 +1,5 @@
-from navigation_in_game_menu import NavigationInGameMenu
-from navigation_in_main_menu import NavigationInMainMenu
+from Navigation.NavigationInMenuAndInterface.navigation_in_game_menu import NavigationInGameMenu
+from Navigation.NavigationInMenuAndInterface.navigation_in_main_menu import NavigationInMainMenu
 
 
 class SwitchingBetweenServers(NavigationInMainMenu, NavigationInGameMenu):
@@ -7,6 +7,7 @@ class SwitchingBetweenServers(NavigationInMainMenu, NavigationInGameMenu):
         for i in range(1):
             self.choose_a_server(i)
             func()
+            self.remove_ads()
             self.logout()
 
 

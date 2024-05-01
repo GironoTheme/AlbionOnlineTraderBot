@@ -6,7 +6,12 @@ class NavigationInMainMenu(Mouse):
     def _click_to_server_menu(self):
         self.move_and_click(1540, 35)
 
+    def _click_to_login(self):
+        self.move_and_click(1100, 765)
+        sleep(5)
+
     def choose_a_server(self, server):
+        self._click_to_login()
         self._click_to_server_menu()
 
         if server == 0:

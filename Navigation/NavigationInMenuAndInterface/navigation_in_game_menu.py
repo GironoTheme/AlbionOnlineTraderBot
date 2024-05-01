@@ -5,14 +5,14 @@ from time import sleep
 
 class NavigationInGameMenu(Mouse):
     def remove_ads(self):
-        if CheckInMainMenu.check_for_ads() is True:
+        if CheckInMainMenu.check_for_ads() is True or CheckInMainMenu.check_for_ads_version_two() is True:
             self.move_and_click(1460, 175)
 
     def _click_to_settings(self):
         self.move_and_click(1888, 33)
 
     def _click_to_logout(self):
-        self.move_and_click(1740, 173)
+        self.move_and_click(1740, 143)
 
     def logout(self):
         self._click_to_settings()

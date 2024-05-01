@@ -34,5 +34,12 @@ class CheckInMainMenu:
         return image.matching(path_to_templates + 'ads.png',
                               path_to_screenshots + 'ads.png')
 
+    @staticmethod
+    def check_for_ads_version_two():
+        sleep(1)
+        image.take_screenshot(path_to_screenshots + 'ads2.png', (1340, 120, 1360, 140))
+
+        return image.matching(path_to_templates + 'ads2.png',
+                              path_to_screenshots + 'ads2.png')
 
 

@@ -24,15 +24,10 @@ class HikingBetweenCities:
             back_to_auction.back_to_auction()
 
             self._choose_city(self.cities[city].name_of_city())
-            sleep(5.5)
 
             self.cities[city].back_and_forth_with_execution_of_function(func)
 
-        mouse.move_and_click(270, 230)
-        mouse.move_and_click(215, 500)
-        mouse.move_and_click(410, 950)
-
-        sleep(10)
+        self._choose_city(thetford.name_of_city())
 
         thetford.go_to_auction_from_travel_planner()
 
@@ -41,6 +36,7 @@ class HikingBetweenCities:
         keyboard.type(city)
 
         mouse.move_and_click(410, 950)
+        sleep(10)
 
 
 hiking_between_cities = HikingBetweenCities()
