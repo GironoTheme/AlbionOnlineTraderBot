@@ -23,7 +23,7 @@ def purchase():
 
     actions_in_game.close_auction_menu()
 
-#e
+#eh
 def only_sale():
     actions_in_game.open_an_auction()
 
