@@ -19,7 +19,7 @@ limit_for_calculating_best_price = 200000
 purchase_limit = 50000
 percent_of_difference = 15
 
-min_balance = 1000000
+min_balance = 100000
 
 list_of_orders = None
 

@@ -1,6 +1,7 @@
 import pyautogui
 import time
 
+
 class Mouse:
     """Класс для работы с мышкой"""
     def __init__(self):

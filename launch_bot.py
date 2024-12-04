@@ -33,8 +33,8 @@ def only_sale():
 
 
 def walker(hwnd):
-    hiking_between_cities.start_hiking_in_thetford(purchase)
     hiking_between_cities.start_hiking_in_thetford(only_sale)
+    hiking_between_cities.start_hiking_in_thetford(purchase)
 
 
 while True:

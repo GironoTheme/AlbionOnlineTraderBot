@@ -39,10 +39,10 @@ class NavigationInAuction(Mouse, Keyboard):
         """
         Перебор категорий ресурсов с выполнением функции
         """
-
         for name, cords in get_json.get_resources().items():
             self.click_to_goods()
             self.move_to_resources_categories()
+            self.scroll_if_ore(name)
             self.move_and_click(cords[0], cords[1])
 
             for level, c in get_json.get_levels().items():
@@ -59,14 +59,24 @@ class NavigationInAuction(Mouse, Keyboard):
             if CheckInAuction().checking_for_presence_of_button() is False:
                 continue
 
+    def scroll_if_ore(self, name):
+        if list(get_json.get_resources().keys()).index(name) > 4:
+            for i in range(5):
+                self.scroll_down(50)
+                time.sleep(0.2)
+
     def find_one_product_in_resources(self, name, level):
+        print('погнали')
         self.click_on_purchases_tab()
 
         self.click_to_goods()
         self.move_to_resources_categories()
-
+        self.scroll_if_ore(name)
         category_of_goods = get_json.get_resources().get(name)
         level_of_goods = get_json.get_levels().get(level)
+
+        print(category_of_goods)
+        print(level_of_goods)
 
         self.move_and_click(category_of_goods[0], category_of_goods[1])
 

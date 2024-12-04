@@ -70,7 +70,7 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
 
     def _sale_goods(self, list_of_product):
         sorted_list = self.calculation([list_of_product], True)
-
+        print(sorted_list)
         if len(sorted_list) > 0:
             try:
                 amount = int(CheckInAuction.checking_count_of_product_for_sale())
