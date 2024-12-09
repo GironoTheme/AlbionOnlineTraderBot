@@ -28,7 +28,6 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
 
     def _fraud_in_completed_transactions_tab(self):
         sleep(0.5)
-
         if CheckInAuction.checking_completed_transactions_tab() is True:
             navigation_in_auction.click_of_completed_transactions_tab()
             navigation_in_auction.click_on_take_all()
@@ -50,17 +49,23 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
                 navigation_in_inventory.stack_objects_in_inventory()
                 navigation_in_auction.click_on_sales_tab()
 
-                self._search_for_products_for_sale()
+                self._sales_cycle()
 
             else:
                 navigation_in_auction.click_on_sales_tab()
 
                 navigation_in_inventory.stack_objects_in_inventory()
-                self._search_for_products_for_sale()
+                self._sales_cycle()
 
         else:
             navigation_in_auction.click_on_sales_tab()
 
+            self._sales_cycle()
+
+    def _sales_cycle(self):
+        self._search_for_products_for_sale()
+
+        while CheckInAuction.checking_permissible_weight() is False:
             self._search_for_products_for_sale()
 
     def _func_for_parsing_of_products(self, name, level):
@@ -83,32 +88,50 @@ class SaleOfProducts(ParseOrders, DifferenceCalculation):
             tax_calculation = CalculationForTrading.checking_for_possibility_of_sale(price,
                                                                                      amount,
                                                                                      self.balance)
+            price -= 1
 
             print(sorted_list[0])
             print(amount)
-
             if tax_calculation is not False:
-                navigation_in_product_menu.set_product_price(price-1)
-                navigation_in_product_menu.confirm_buy()
+                self.balance = self.balance - tax_calculation[1] * self._sale(price)
 
-                print(tax_calculation[1])
+            elif tax_calculation is False:
+                self._sale(price, True)
 
-                self.balance = self.balance - tax_calculation[1]
+    def _sale(self, price, check=False):
+        self._set_price_and_confirm_sale(price)
+        if check is True:
+            self._resale_after_waiting()
+            self._scrolling_goods()
+            self._resale(price)
+            return 
+        self._scrolling_goods()
+        self._resale(price)
+        return self._resale(price) + 1
 
-                navigation_in_product_menu.move(886, 505)
-                navigation_in_product_menu.scroll_up(12)
+    def _resale(self, price):
+        count_of_tax = 0
+        while CheckInAuction.checking_for_presence_of_button(color_list=[255, 15, 50]) is True:
+            navigation_in_auction.click_to_buy_button()
+            navigation_in_product_menu.expand_price_menu()
+            self._set_price_and_confirm_sale(price)
+            self._resale_after_waiting()
+            self._scrolling_goods()
+            count_of_tax += 1
 
-                while CheckInAuction.checking_for_presence_of_button(color_list=[255, 15, 50]) is True:
-                    navigation_in_auction.click_to_buy_button()
-                    navigation_in_product_menu.expand_price_menu()
+        return count_of_tax
 
-                    navigation_in_product_menu.set_product_price(price - 1)
-                    navigation_in_product_menu.confirm_buy()
+    def _resale_after_waiting(self):
+        while CheckInAuction.check_possible_pay() is True:
+            navigation_in_product_menu.resale_after_waiting()
 
-                    navigation_in_product_menu.move(886, 505)
-                    navigation_in_product_menu.scroll_up(12)
+    def _set_price_and_confirm_sale(self, price):
+        navigation_in_product_menu.set_product_price(price)
+        navigation_in_product_menu.confirm_buy()
 
-                    self.balance = self.balance - tax_calculation[1]
+    def _scrolling_goods(self):
+        navigation_in_product_menu.move(886, 505)
+        navigation_in_product_menu.scroll_up(12)
 
     def _search_for_products_for_sale(self):
         back_to_auction.back_to_auction()

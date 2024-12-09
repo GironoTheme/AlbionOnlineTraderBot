@@ -1,3 +1,4 @@
+from Actions.actions_in_game import actions_in_game
 from Navigation.NavigationInCities.Cities.bridge_watch import bridge_watch
 from Navigation.NavigationInCities.Cities.thetford import thetford
 from Navigation.NavigationInCities.Cities.fort_sterling import fort_sterling
@@ -24,22 +25,26 @@ class HikingBetweenCities:
             back_to_auction.back_to_auction()
 
             self._choose_city(self.cities[city].name_of_city())
-            sleep(5.5)
+            sleep(12.5)
 
             self.cities[city].back_and_forth_with_execution_of_function(func)
 
         mouse.move_and_click(270, 230)
-        mouse.move_and_click(215, 500)
+        mouse.move_and_click(215, 450)
         mouse.move_and_click(410, 950)
 
-        sleep(10)
+        sleep(15)
+        actions_in_game.close_ad()
 
         thetford.go_to_auction_from_travel_planner()
 
     def _choose_city(self, city):
         mouse.move_and_click(270, 230)
         keyboard.type(city)
+        keyboard.press_button('enter')
 
+        # mouse.move_and_click(410, 950)
+        # sleep(0.8)
         mouse.move_and_click(410, 950)
 
 

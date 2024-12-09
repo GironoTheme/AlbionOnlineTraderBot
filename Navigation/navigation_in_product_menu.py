@@ -49,6 +49,11 @@ class NavigationInProductMenu(Mouse, Keyboard):
         self.move_and_click(850, 780)
         self.move_and_click(800, 555)
 
+    def resale_after_waiting(self):
+        self.move_and_click(953, 525)
+        time.sleep(300)
+        self.confirm_buy()
+
 
 navigation_in_product_menu = NavigationInProductMenu()
 

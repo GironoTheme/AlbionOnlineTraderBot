@@ -25,3 +25,9 @@ class CheckInMainMenu:
         print(22222222222222222222222222222222222)
         return image.matching(path_to_templates + 'failed_to_connect_to_server.png',
                               path_to_screenshots + 'failed_to_connect_to_server.png')
+
+    @staticmethod
+    def check_ad():
+        sleep(1)
+        image.take_screenshot(path_to_screenshots + 'ad.png', (1448, 163, 1471, 186))
+        return image.matching(path_to_templates + 'ad.png', path_to_screenshots + 'ad.png')

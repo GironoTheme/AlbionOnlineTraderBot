@@ -16,7 +16,7 @@ path_to_templates = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Images\\te
 path_to_json = f"{find_path_to_folder('AlbionOnlineTraderBot')}\\Jsons\\"
 
 limit_for_calculating_best_price = 200000
-purchase_limit = 50000
+purchase_limit = 5000
 percent_of_difference = 15
 
 min_balance = 100000

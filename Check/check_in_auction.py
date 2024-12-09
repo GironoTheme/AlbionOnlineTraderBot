@@ -73,3 +73,21 @@ class CheckInAuction:
         return image.matching(path_to_templates+'your_inventory_cannot_hold_this_many_item.png',
                               path_to_screenshots + 'your_inventory_cannot_hold_this_many_item.png')
 
+    @staticmethod
+    def checking_permissible_weight():
+        time.sleep(1)
+        image.take_screenshot(path_to_screenshots + 'permissible_weight.png',
+                              (1656, 529, 1714, 536))
+
+        return image.matching(path_to_templates + 'permissible_weight.png',
+                              path_to_screenshots + 'permissible_weight.png')
+
+    @staticmethod
+    def check_possible_pay():
+        time.sleep(1)
+        image.take_screenshot(path_to_screenshots + 'possible_pay.png',
+                              (815, 441, 1103, 459))
+
+        return image.matching(path_to_templates + 'possible_pay.png',
+                              path_to_screenshots + 'possible_pay.png')
+
