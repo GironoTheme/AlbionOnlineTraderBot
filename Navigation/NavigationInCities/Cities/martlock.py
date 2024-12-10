@@ -32,11 +32,11 @@ class Martlock(NavigationForCity):
     def _go_to_travel_from_market_enter(self):
         self.move_down_right_diagonal(0.3)
         self.move_up_right_diagonal(0.3)
-        self.move_down_right_diagonal(2)
+        self.move_down_right_diagonal(2.4)
 
         self.move_up_right_diagonal(7)
         self.move_down_right_diagonal(1.5)
-        self.move_up_right_diagonal(1)
+        self.move_up_right_diagonal(0.8)
 
     def _open_an_travel_planer(self):
         self.move_and_click(1075, 418)

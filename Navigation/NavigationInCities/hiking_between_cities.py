@@ -29,8 +29,8 @@ class HikingBetweenCities:
 
             self.cities[city].back_and_forth_with_execution_of_function(func)
 
-        mouse.move_and_click(270, 230)
-        mouse.move_and_click(215, 450)
+        # mouse.move_and_click(270, 230)
+        mouse.move_and_click(242, 565)
         mouse.move_and_click(410, 950)
 
         sleep(15)
@@ -39,9 +39,19 @@ class HikingBetweenCities:
         thetford.go_to_auction_from_travel_planner()
 
     def _choose_city(self, city):
-        mouse.move_and_click(270, 230)
-        keyboard.type(city)
-        keyboard.press_button('enter')
+        # mouse.move_and_click(270, 230)
+        # keyboard.type(city)
+
+        if city == "BridgeWatch":
+            mouse.move_and_click(257, 643)
+        if city == "Caerleon":
+            mouse.move_and_click(263, 607)
+        if city == "Lymhurst":
+            mouse.move_and_click(303, 618)
+        if city == "Martlock":
+            mouse.move_and_click(227, 604)
+
+        # keyboard.press_button('enter')
 
         # mouse.move_and_click(410, 950)
         # sleep(0.8)
